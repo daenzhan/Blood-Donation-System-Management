@@ -44,4 +44,9 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/donors/{bloodType}")
+    public ResponseEntity<List<User>> getDonorsByBloodType(@PathVariable String bloodType) {
+        return ResponseEntity.ok(userService.findDonorsByBloodType(bloodType));
+    }
+
 }
