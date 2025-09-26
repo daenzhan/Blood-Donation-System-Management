@@ -29,7 +29,6 @@ public class UserService {
 
     public User update_user(Long id, User user) {
         User u = get_user_by_id(id).get();
-        u.setFull_name(user.getFull_name());
         u.setRole(user.getRole());
         if (user.getPassword() != null) {
             u.setPassword(user.getPassword());

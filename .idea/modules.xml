@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Blood Donation Management System.iml" filepath="$PROJECT_DIR$/Blood Donation Management System.iml" />
-      <module fileurl="file://$PROJECT_DIR$/med-center-server/med-center-server.iml" filepath="$PROJECT_DIR$/med-center-server/med-center-server.iml" />
     </modules>
   </component>
 </project>

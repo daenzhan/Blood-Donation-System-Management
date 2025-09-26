@@ -1,8 +1,10 @@
 package org.example.medcenterserver;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "med_centers")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class MedCenter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +24,8 @@ public class MedCenter {
         this.specialization = specialization;
         this.user_id = user_id;
     }
+
+    public MedCenter (){}
 
     public Long getMed_center_id() {
         return med_center_id;
