@@ -2,9 +2,9 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/db_blood_donation
+    url: jdbc:postgresql://localhost:5432/db_BloodDonation
     username: postgres
-    password: 888
+    password: Qt4076042
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
