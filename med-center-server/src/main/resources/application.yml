@@ -2,7 +2,7 @@ spring:
   application:
     name: med-center-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/med_centers
+    url: jdbc:postgresql://localhost:5432/db_blood_donation
     username: postgres
     password: 888
     driver-class-name: org.postgresql.Driver
