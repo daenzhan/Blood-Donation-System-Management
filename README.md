@@ -17,7 +17,7 @@ The system includes several services:
 - **PostgreSQL**
 - **Maven**
 - **Postman** (for API testing)
-- 
+  
 ## Running
 1. Start **Eureka Server** (`localhost:8761`)  
 2. Start **API Gateway** (`localhost:8080`)  
