@@ -14,7 +14,6 @@ The system includes several services:
 - **Spring Cloud (Eureka, Gateway)**
 - **Spring Data JPA**
 - **PostgreSQL**
-- **Maven**
 - **Postman** (for API testing)
   
 ## Running
