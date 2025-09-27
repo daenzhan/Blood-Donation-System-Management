@@ -20,10 +20,9 @@ The system includes several services:
   
 ## Running
 1. Start **Eureka Server** (`localhost:8761`)  
-2. Start **API Gateway** (`localhost:8080`)  
-3. Start **User Service** (`localhost:8081`)  
-4. Start **MedCenter Service** (`localhost:8082`)  
-5. Start **Request Service** (`localhost:8083`)
+2. Start **User Service** (`localhost:8081`)  
+3. Start **MedCenter Service** (`localhost:8082`)
+4. Start **API Gateway** (`localhost:8080`)
 
 ## API Endpoints (via API Gateway - http://localhost:8082/...)
 
@@ -41,10 +40,5 @@ The system includes several services:
 - `PUT /med-centers/{id}` – update med center  
 - `DELETE /med-centers/{id}` – delete med center  
 
-### Request Service `/requests`
-- `POST /requests` – create request  
-- `GET /requests` – list requests  
-- `GET /requests/{id}` – get request  
-- `PUT /requests/{id}` – update request (owner only)  
-- `DELETE /requests/{id}` – delete request (owner only)  
+
 
