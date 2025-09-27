@@ -7,7 +7,6 @@ The system includes several services:
 - **API Gateway** – single entry point, routing requests to the proper services.
 - **User Service** – manages users (donors).
 - **Medical Center Service** – manages medical centers.
-- **Request Service** – manages requests from medical centers (centers can see all requests, but only edit or delete their own).
 
 ## 🛠 Tech Stack
 - **Java 17+**
