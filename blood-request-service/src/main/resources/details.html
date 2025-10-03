@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Request Details</title>
+</head>
+<body>
+<h1>Request Details</h1>
+
+<p><strong>ID:</strong> <span th:text="${request.blood_request_id}">1</span></p>
+<p><strong>Component:</strong> <span th:text="${request.componentType}">Erythrocytes</span></p>
+<p><strong>Blood Group:</strong> <span th:text="${request.bloodGroup}">A+</span></p>
+<p><strong>Rhesus Factor:</strong> <span th:text="${request.rhesusFactor}">Positive</span></p>
+<p><strong>Volume:</strong> <span th:text="${request.volume}">2 units</span></p>
+<p><strong>Deadline:</strong> <span th:text="${#dates.format(request.deadline, 'dd.MM.yyyy HH:mm')}">14.10.2025 12:00</span></p>
+<p><strong>Comments:</strong> <span th:text="${request.comments}">Urgent</span></p>
+
+<p>
+    <a th:href="@{|/requests/${request.blood_request_id}/edit|}">Edit</a> |
+    <a th:href="@{/requests}">Back to list</a>
+</p>
+
+</body>
+</html>

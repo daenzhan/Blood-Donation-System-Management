@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Blood Requests</title>
+</head>
+<body>
+<h1>Blood Requests</h1>
+
+<p><a th:href="@{/requests/new}">Create new request</a></p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Component</th>
+        <th>Blood Group</th>
+        <th>Rhesus Factor</th>
+        <th>Volume</th>
+        <th>Deadline</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="r : ${requests}">
+        <td th:text="${r.blood_request_id}">1</td>
+        <td th:text="${r.componentType}">Erythrocytes</td>
+        <td th:text="${r.bloodGroup}">A+</td>
+        <td th:text="${r.rhesusFactor}">Positive</td>
+        <td th:text="${r.volume}">2 units</td>
+        <td th:text="${#dates.format(r.deadline, 'dd.MM.yyyy HH:mm')}">14.10.2025 12:00</td>
+        <td>
+            <a th:href="@{|/requests/${r.blood_request_id}|}">View</a> |
+            <a th:href="@{|/requests/${r.blood_request_id}/edit|}">Edit</a> |
+            <form th:action="@{|/requests/${r.blood_request_id}/delete|}" method="post" style="display:inline">
+                <button type="submit" onclick="return confirm('Delete this request?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

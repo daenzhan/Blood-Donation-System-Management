@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Requests for MedCenter</title>
+</head>
+<body>
+<h1>Requests for MedCenter ID: <span th:text="${medcenter_id}"></span></h1>
+
+<a href="/requests">Back to All Requests</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Component Type</th>
+        <th>Blood Group</th>
+        <th>Rhesus Factor</th>
+        <th>Volume</th>
+        <th>Deadline</th>
+        <th>Comments</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="req : ${requests}">
+        <td th:text="${req.blood_request_id}"></td>
+        <td th:text="${req.component_type}"></td>
+        <td th:text="${req.blood_group}"></td>
+        <td th:text="${req.rhesus_factor}"></td>
+        <td th:text="${req.volume}"></td>
+        <td th:text="${req.deadline}"></td>
+        <td th:text="${req.comments}"></td>
+        <td>
+            <a th:href="@{'/requests/' + ${req.blood_request_id}}">View</a> |
+            <a th:href="@{'/requests/' + ${req.blood_request_id} + '/edit'}">Edit</a> |
+            <form th:action="@{'/requests/' + ${req.blood_request_id} + '/delete'}" method="post" style="display:inline">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

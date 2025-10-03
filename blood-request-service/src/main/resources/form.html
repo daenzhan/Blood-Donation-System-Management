@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Request Form</title>
+</head>
+<body>
+<h1 th:text="${bloodRequest.blood_request_id} != null ? 'Edit Request' : 'New Request'">Form</h1>
+
+<form th:action="@{/requests/save}" th:object="${bloodRequest}" method="post">
+    <input type="hidden" th:field="*{blood_request_id}" />
+
+    <div>
+        <label>Component:</label>
+        <input type="text" th:field="*{componentType}" required/>
+    </div>
+
+    <div>
+        <label>Blood Group:</label>
+        <select th:field="*{bloodGroup}" required>
+            <option value="">--Select--</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>AB+</option><option>AB-</option>
+            <option>O+</option><option>O-</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Rhesus Factor:</label>
+        <select th:field="*{rhesusFactor}" required>
+            <option value="">--Select--</option>
+            <option>Positive</option>
+            <option>Negative</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Volume:</label>
+        <input type="text" th:field="*{volume}"/>
+    </div>
+
+    <div>
+        <label>Deadline:</label>
+        <input type="datetime-local" th:field="*{deadline}"/>
+    </div>
+
+    <div>
+        <label>Comments:</label>
+        <textarea th:field="*{comments}" rows="3" cols="40"></textarea>
+    </div>
+
+    <div>
+        <button type="submit">Save</button>
+        <a th:href="@{/requests}">Cancel</a>
+    </div>
+</form>
+
+</body>
+</html>

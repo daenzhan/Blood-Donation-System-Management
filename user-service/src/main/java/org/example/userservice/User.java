@@ -1,7 +1,6 @@
 package org.example.userservice;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -10,35 +9,37 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
+    @Column(nullable = false)
     private String password;
 
-    private String role;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 
-    @CreationTimestamp
-    private LocalDateTime created_at;
+    private boolean enabled = true;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-
-    public User(Long user_id, String email, String password, String role, LocalDateTime created_at) {
-        this.user_id = user_id;
+    public User(Long id, String email, String password, Role role, boolean enabled, LocalDateTime createdAt) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.role = role;
-        this.created_at = created_at;
+        this.enabled = enabled;
+        this.createdAt = createdAt;
+    }
+    public User() {}
+
+    public Long getId() {
+        return id;
     }
 
-    public User(){}
-
-    public Long getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -57,21 +58,28 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
-    public LocalDateTime getCreated_at() {
-        return created_at;
+    public boolean isEnabled() {
+        return enabled;
     }
 
-    public void setCreated_at(LocalDateTime created_at) {
-        this.created_at = created_at;
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }
+
