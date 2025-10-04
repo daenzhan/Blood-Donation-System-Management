@@ -7,6 +7,7 @@ The system includes several services:
 - **API Gateway** – single entry point, routing requests to the proper services.
 - **User Service** – manages users (donors).
 - **Medical Center Service** – manages medical centers.
+- **Blood Request Service** – manages medical centers.
 
 ## 🛠 Tech Stack
 - **Java 17+**
@@ -15,14 +16,16 @@ The system includes several services:
 - **Spring Data JPA**
 - **PostgreSQL**
 - **Postman** (for API testing)
+
   
 ## Running
-1. Start **Eureka Server** (`localhost:8761`)  
-2. Start **User Service** (`localhost:8081`)  
-3. Start **MedCenter Service** (`localhost:8082`)
-4. Start **API Gateway** (`localhost:8080`)
+1. Start **eureka-server** (`localhost:8761`)  
+2. Start **user-service** (`localhost:8081`)  
+3. Start **med-center-service** (`localhost:8082`)
+4. Start **bloodrequest-service** (`localhost:8084`)
+5. Start **api-gateway-service** (`localhost:8080`)
 
-## API Endpoints (via API Gateway - http://localhost:8082/...)
+## API Endpoints (via API Gateway - http://localhost:8080/...)
 
 ### User Service `/users`
 - `POST /users` – create user  
@@ -32,11 +35,19 @@ The system includes several services:
 - `DELETE /users/{id}` – delete user  
 
 ### MedCenter Service `/medcenters`
-- `POST /med-centers` – create med center  
-- `GET /med-centers` – list med centers  
-- `GET /med-centers/{id}` – get med center  
-- `PUT /med-centers/{id}` – update med center  
-- `DELETE /med-centers/{id}` – delete med center  
+- `POST /medcenters` – create med center  
+- `GET /medcenters` – list med centers  
+- `GET /medcenters/{id}` – get med center  
+- `PUT /medcenters/{id}` – update med center  
+- `DELETE /medcenters/{id}` – delete med center  
 
+
+### MedCenter Service `/medcenters`
+- `POST /requests/save` – save requests
+- `GET /requests/new` – show form for creating the request
+- `GET /requests` – list requests 
+- `GET /requests/{id}` – get requests by id
+- `POS /requests/{id}/edit` – update requests
+- `DELETE /requests/{id}` – delete requests
 
 
