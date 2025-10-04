@@ -42,7 +42,7 @@ The system includes several services:
 - `DELETE /medcenters/{id}` – delete med center  
 
 
-### MedCenter Service `/medcenters`
+### Bloodrequest Service `/requests`
 - `POST /requests/save` – save requests
 - `GET /requests/new` – show form for creating the request
 - `GET /requests` – list requests 
